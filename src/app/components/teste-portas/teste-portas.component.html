@@ -1,15 +1,33 @@
 <div>
-    <button (click)="connect()">Conectar na balança</button>
-    <button (click)="toggleL1()">Ler</button>
-    <button (click)="close()">Finalizar</button>
+{{ pesoAtual }}
+
 </div>
 
+<br>
+
 <div>
+    <!-- Seleção da porta COM -->
+    <div>
+        <label for="portaCom">Escolha a porta COM:</label>
+        <button (click)="connect()">Conectar na balança</button>
+        <button (click)="close()">Desconectar</button>
+    </div>
 
-    {{ pesoAtual }}
-
-
-
-
-
+    <!-- Mostrar a porta COM selecionada -->
+    <div>
+        <p>Porta COM selecionada: {{ port }}</p>
+    </div>
+    <!-- Leituras da balança -->
+    <div>
+        <button (click)="toggleL1()">Ler balança</button>
+        <ul>
+            @for (leitura of leituras; track leitura) {
+            <li>{{ leitura | number:'1.2-2'}}</li>
+            } @empty {
+            Sem leituras no momento.
+            }
+            <!-- <li *ngFor="let leitura of leituras">{{ leitura }}</li> -->
+            
+            </ul>
+            </div>
 </div>
