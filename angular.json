@@ -69,7 +69,13 @@
               "buildTarget": "pre-medidos:build:development"
             }
           },
-          "defaultConfiguration": "development"
+          "defaultConfiguration": "development",
+          "options": {
+            "browserTarget": "app:build",
+            "ssl": true,
+            "sslKey": "src/assets/ssl/localhost.key",
+            "sslCert": "src/assets/ssl/localhost.crt"
+          }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
